@@ -174,17 +174,15 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
 ## 5. Create your first job
 
-1. On the Jenkins home page, select **Create a job**.
+On the Jenkins home page, select **Create a job**.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/9c49fc1e-3b89-47f8-8659-d7afe6773ae3)
 
-1. Enter a job name of `my-first-freestyle-hello-world`, select **Freestyle project**, and select **OK**.
+Enter a job name of `my-first-freestyle-hello-world`, select **Freestyle project**, and select **OK**.
 
-    ![New job creation](./media/configure-on-linux-vm/new-job.png)
+Select the **Build** tab, then select **Add build step**
 
-1. Select the **Build** tab, then select **Add build step**
-
-1. From the drop-down menu, select **Execute Shell**.
+From the drop-down menu, select **Execute Shell**.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/6406e84d-3bed-40cb-a5b1-cdc5f076755a)
 
@@ -192,19 +190,19 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/c44c7590-24c3-4028-b7db-deca786e78cb)
 
-1. Scroll to the bottom of the page, and select **Save**.
+Scroll to the bottom of the page, and select **Save**.
 
 ## 6. Build the sample Freestyle Hello-World job
 
-1. When the home page for your project displays, select **Build Now** to compile the code and package the sample app.
+    When the home page for your project displays, select **Build Now** to compile the code and package the sample app.
 
     ![Project home page](./media/configure-on-linux-vm/project-home-page.png)
 
-1. A graphic below the **Build History** heading indicates that the job is being built.
+    A graphic below the **Build History** heading indicates that the job is being built.
 
     ![Job-build in progress](./media/configure-on-linux-vm/job-currently-building.png)
 
-1. Your Jenkins server is now ready to build your own projects in Azure!
+    Your Jenkins server is now ready to build your own projects in Azure!
 
 ## Troubleshooting
 
