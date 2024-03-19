@@ -176,6 +176,41 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
 1. On the Jenkins home page, select **Create a job**.
 
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/9c49fc1e-3b89-47f8-8659-d7afe6773ae3)
+
+1. Enter a job name of `my-first-freestyle-hello-world`, select **Freestyle project**, and select **OK**.
+
+    ![New job creation](./media/configure-on-linux-vm/new-job.png)
+
+1. Select the **Source Code Management** tab. Enable **Git** and enter the following URL for the **Repository URL** value: `https://github.com/spring-guides/gs-spring-boot.git`. Then change the **Branch Specifier** to `*/main`.
+
+    ![Define the Git repo](./media/configure-on-linux-vm/source-code-management.png)
+
+1. Select the **Build** tab, then select **Add build step**
+
+
+1. From the drop-down menu, select **Execute Shell**.
+
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/6406e84d-3bed-40cb-a5b1-cdc5f076755a)
+
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/e58f8baf-c717-4361-aceb-9123dc83ffdc)
+
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/c44c7590-24c3-4028-b7db-deca786e78cb)
+
+1. Select **Use Gradle Wrapper**, then enter `complete` in **Wrapper location** and `build` for **Tasks**.
+
+    ![Gradle script options](./media/configure-on-linux-vm/gradle-script-options.png)
+
+1. Select **Advanced** and enter `complete` in the **Root Build script** field.
+
+    ![Advanced Gradle script options](./media/configure-on-linux-vm/root-build-script.png)
+
+1. Scroll to the bottom of the page, and select **Save**.
+
+## 6. Build the sample Java app
+
+1. On the Jenkins home page, select **Create a job**.
+
     ![Jenkins console home page](./media/configure-on-linux-vm/jenkins-home-page.png)
 
 1. Enter a job name of `mySampleApp`, select **Freestyle project**, and select **OK**.
@@ -204,7 +239,7 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
 1. Scroll to the bottom of the page, and select **Save**.
 
-## 6. Build the sample Java app
+## 7. Build the sample Java app
 
 1. When the home page for your project displays, select **Build Now** to compile the code and package the sample app.
 
