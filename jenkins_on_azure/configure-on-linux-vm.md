@@ -186,23 +186,19 @@ From the drop-down menu, select **Execute Shell**.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/6406e84d-3bed-40cb-a5b1-cdc5f076755a)
 
-![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/e58f8baf-c717-4361-aceb-9123dc83ffdc)
-
-![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/c44c7590-24c3-4028-b7db-deca786e78cb)
-
 Scroll to the bottom of the page, and select **Save**.
 
 ## 6. Build the sample Freestyle Hello-World job
 
-    When the home page for your project displays, select **Build Now** to compile the code and package the sample app.
+When the home page for your project displays, select **Build Now** to compile the code and package the sample app.
 
-    ![Project home page](./media/configure-on-linux-vm/project-home-page.png)
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/e58f8baf-c717-4361-aceb-9123dc83ffdc)
 
-    A graphic below the **Build History** heading indicates that the job is being built.
+A graphic below the **Build History** heading indicates that the job is being built.
 
-    ![Job-build in progress](./media/configure-on-linux-vm/job-currently-building.png)
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/c44c7590-24c3-4028-b7db-deca786e78cb)
 
-    Your Jenkins server is now ready to build your own projects in Azure!
+Your Jenkins server is now ready to build your own projects in Azure!
 
 ## Troubleshooting
 
