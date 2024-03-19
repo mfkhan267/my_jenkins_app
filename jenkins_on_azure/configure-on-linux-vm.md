@@ -184,6 +184,10 @@ Select the **Build** tab, then select **Add build step**
 
 From the drop-down menu, select **Execute Shell**.
 
+    ```bash
+    echo "Hello World"
+    ```
+
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/6406e84d-3bed-40cb-a5b1-cdc5f076755a)
 
 You may also select a **Pipeline project**, and select **OK** and try the sample Hello-World pipeline.
@@ -191,6 +195,8 @@ You may also select a **Pipeline project**, and select **OK** and try the sample
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/5c7abcc7-655b-47c6-801d-f1c619e7ccb9)
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/6da44c09-32b3-49cd-9bd7-d5b7dccde6ed)
+
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/db4d7c97-9904-428c-9616-5c9a898b5e7d)
 
 Scroll to the bottom of the page, and select **Save**.
 
