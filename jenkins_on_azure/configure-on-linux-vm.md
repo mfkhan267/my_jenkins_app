@@ -18,29 +18,29 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
 ## 2. Open Cloud Shell
 
-1. If you already have a Cloud Shell session open, you can skip to the next section.
+If you already have a Cloud Shell session open, you can skip to the next section.
 
-1. Browse to the [Azure Portal](https://portal.azure.com/)
+Browse to the [Azure Portal](https://portal.azure.com/)
 
-1. If necessary, log in to your Azure subscription and change the Azure directory.
+If necessary, log in to your Azure subscription and change the Azure directory.
 
-1. Open Cloud Shell.
+Open Cloud Shell.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/14b19209-2093-4a29-a5e6-df8093e4afa0)
 
 ## 3. Create a virtual machine
 
-1. Fetch your account details as shown below for use further down the document as we proceed.
+Fetch your account details as shown below for use further down the document as we proceed.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/735be17e-6c38-4a52-bade-44d10b8490ea)
 
-1. Create a test directory by a name of your choice. I called mine `jenkins267`.
+Create a test directory by a name of your choice. I called mine `jenkins267`.
 
-1. Switch to the test directory created above.
+Switch to the test directory created above.
 
-1. Create a file named `cloud-init-jenkins.txt`.
+Create a file named `cloud-init-jenkins.txt`.
 
-1. Paste the following code into the new file:
+Paste the following code into the new file:
 
     ```json
     
@@ -55,13 +55,13 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
     ```
     
-1. Run [az group create](https://learn.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-create) command to create a resource group.
+Run [az group create](https://learn.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-create) command to create a resource group.
 
     ```azurecli
     az group create --name jenkins267 --location eastus2
     ```
 
-1. Run [az vm create](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli) to create a virtual machine. If you have SSH of you own, you may use 
+Run [az vm create](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli) to create a virtual machine. If you have SSH of you own, you may use 
 
     ```azurecli
     az vm create \
@@ -86,13 +86,13 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
     ```
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/5c0afd4f-d22d-46ec-8a1a-92f5c2b79aa7)
  
-1. Run [az vm list](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-list) command to verify the creation (and state) of the new virtual machine.
+Run [az vm list](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-list) command to verify the creation (and state) of the new virtual machine.
 
     ```azurecli
     az vm list -d -o table --query "[?name=='jenkinsvm267']"
     ```
 
-1. As Jenkins runs on port 8080, let us now run [az vm open-port](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-open-port) command to open port 8080 on the new virtual machine. You also need to open additional ports later on if your container app is listening on other ports like 8080, 3000 and so on.
+As Jenkins runs on port 8080, let us now run [az vm open-port](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-open-port) command to open port 8080 on the new virtual machine. You also need to open additional ports later on if your container app is listening on other ports like 8080, 3000 and so on.
 
     ```azurecli
     az vm open-port \
@@ -103,7 +103,7 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
 ## 4. Configure Jenkins
 
-1. Run [az vm show](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-show) command to get the public IP address for the sample virtual machine.
+Run [az vm show](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-show) command to get the public IP address for the sample virtual machine.
 
     ```azurecli
     az vm show \
@@ -114,7 +114,7 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
     ```
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/ce02a682-a07f-42f5-aaea-eeff49bee6e3)
 
-1. You may retieve the IP address from the Azure Portal Console and selecting the Virtual Machine named `jenkinsvm267`
+You may retieve the IP address from the Azure Portal Console and selecting the Virtual Machine named `jenkinsvm267`
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/d1a43772-c1fd-4df4-be6a-43c63093551a)
 
@@ -122,7 +122,7 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
     - The `--query` parameter limits the output to the public IP addresses for the virtual machine.
 
-1. Using the IP address retrieved in the previous step, SSH into the virtual machine. You'll need to confirm the connection request.
+Using the IP address retrieved in the previous step, SSH into the virtual machine. You'll need to confirm the connection request.
 
     ```azurecli
     ssh azureuser@<ip_address>
@@ -132,7 +132,7 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
     - Upon successful connection, the Cloud Shell prompt includes the user name and virtual machine name: `azureuser@jenkins-get-started-vm`.
 
-1. Verify that Jenkins is running by getting the status of the Jenkins service.
+Verify that Jenkins is running by getting the status of the Jenkins service.
 
     ```bash
     service jenkins status
@@ -142,7 +142,7 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
     - If you receive an error regarding the service not existing, you may have to wait a couple of minutes for everything to install and initialize.
 
-1. Get the autogenerated Jenkins password.
+Get the autogenerated Jenkins password.
 
     ```bash
     sudo cat /var/lib/jenkins/secrets/initialAdminPassword
@@ -150,25 +150,25 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
     
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/e0001f99-4302-4969-9687-0b8105fa2388)
 
-1. Using the IP address, open the following URL in a browser: `http://<ip_address>:8080`
+Using the IP address, open the following URL in a browser: `http://<ip_address>:8080`
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/0eeb69aa-198d-49bf-bb12-14521b74f92f)
 
-1. Enter the password you retrieved earlier and select **Continue**.
+Enter the password you retrieved earlier and select **Continue**.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/20495d31-5438-42a4-9f81-62fe73fb9da4)
 
-1. Select **Select Install suggested plug-ins**.
+Select **Select Install suggested plug-ins**.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/1b528afd-7e76-4744-a7f9-113633cad0ff)
 
-1. Enter the information for the first admin user and select **Save and Continue**.
+Enter the information for the first admin user and select **Save and Continue**.
 
-1. On the **Instance Configuration** page, select **Save and Finish**.
+On the **Instance Configuration** page, select **Save and Finish**.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/27e3628d-edf7-4dc4-a617-3ba76a25466e)
 
-1. Select **Start using Jenkins**.
+Select **Start using Jenkins**.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/026900f5-3e33-4b30-8899-6c128085875f)
 
