@@ -4,8 +4,6 @@ This article shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Lin
 
 In this article, you'll learn how to:
 
-> [!div class="checklist"]
-
 > * Create a setup file that downloads and installs Jenkins
 > * Create a resource group
 > * Create a virtual machine with the setup file
