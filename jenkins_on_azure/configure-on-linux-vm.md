@@ -64,13 +64,13 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
     ```
     
-1. Run [az group create] command to create a resource group.
+1. Run [az group create](https://learn.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-create) command to create a resource group.
 
     ```azurecli
     az group create --name jenkins267 --location eastus2
     ```
 
-1. Run [az vm create](/cli/azure/vm#az-vm-create) to create a virtual machine. If you have SSH of you own, you may use 
+1. Run [az vm create](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli) to create a virtual machine. If you have SSH of you own, you may use 
 
     ```azurecli
     az vm create \
@@ -95,13 +95,13 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
     ```
    
 
-1. Run [az vm list] command to verify the creation (and state) of the new virtual machine.
+1. Run [az vm list](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-list) command to verify the creation (and state) of the new virtual machine.
 
     ```azurecli
     az vm list -d -o table --query "[?name=='jenkinsvm267']"
     ```
 
-1. As Jenkins runs on port 8080, run [az vm open] command to open port 8080 on the new virtual machine.
+1. As Jenkins runs on port 8080, run [az vm open-port](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-open-port) command to open port 8080 on the new virtual machine.
 
     ```azurecli
     az vm open-port \
@@ -112,7 +112,7 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
 ## 4. Configure Jenkins
 
-1. Run [az vm show] command to get the public IP address for the sample virtual machine.
+1. Run [az vm show](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-show) command to get the public IP address for the sample virtual machine.
 
     ```azurecli
     az vm show \
