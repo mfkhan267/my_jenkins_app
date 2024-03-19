@@ -182,12 +182,7 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
     ![New job creation](./media/configure-on-linux-vm/new-job.png)
 
-1. Select the **Source Code Management** tab. Enable **Git** and enter the following URL for the **Repository URL** value: `https://github.com/spring-guides/gs-spring-boot.git`. Then change the **Branch Specifier** to `*/main`.
-
-    ![Define the Git repo](./media/configure-on-linux-vm/source-code-management.png)
-
 1. Select the **Build** tab, then select **Add build step**
-
 
 1. From the drop-down menu, select **Execute Shell**.
 
@@ -197,49 +192,9 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/c44c7590-24c3-4028-b7db-deca786e78cb)
 
-1. Select **Use Gradle Wrapper**, then enter `complete` in **Wrapper location** and `build` for **Tasks**.
-
-    ![Gradle script options](./media/configure-on-linux-vm/gradle-script-options.png)
-
-1. Select **Advanced** and enter `complete` in the **Root Build script** field.
-
-    ![Advanced Gradle script options](./media/configure-on-linux-vm/root-build-script.png)
-
 1. Scroll to the bottom of the page, and select **Save**.
 
-## 6. Build the sample Java app
-
-1. On the Jenkins home page, select **Create a job**.
-
-    ![Jenkins console home page](./media/configure-on-linux-vm/jenkins-home-page.png)
-
-1. Enter a job name of `mySampleApp`, select **Freestyle project**, and select **OK**.
-
-    ![New job creation](./media/configure-on-linux-vm/new-job.png)
-
-1. Select the **Source Code Management** tab. Enable **Git** and enter the following URL for the **Repository URL** value: `https://github.com/spring-guides/gs-spring-boot.git`. Then change the **Branch Specifier** to `*/main`.
-
-    ![Define the Git repo](./media/configure-on-linux-vm/source-code-management.png)
-
-1. Select the **Build** tab, then select **Add build step**
-
-    ![Add a new build step](./media/configure-on-linux-vm/add-build-step.png)
-
-1. From the drop-down menu, select **Invoke Gradle script**.
-
-    ![Select the Gradle script option](./media/configure-on-linux-vm/invoke-gradle-script-option.png)
-
-1. Select **Use Gradle Wrapper**, then enter `complete` in **Wrapper location** and `build` for **Tasks**.
-
-    ![Gradle script options](./media/configure-on-linux-vm/gradle-script-options.png)
-
-1. Select **Advanced** and enter `complete` in the **Root Build script** field.
-
-    ![Advanced Gradle script options](./media/configure-on-linux-vm/root-build-script.png)
-
-1. Scroll to the bottom of the page, and select **Save**.
-
-## 7. Build the sample Java app
+## 6. Build the sample Freestyle Hello-World job
 
 1. When the home page for your project displays, select **Build Now** to compile the code and package the sample app.
 
@@ -248,14 +203,6 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 1. A graphic below the **Build History** heading indicates that the job is being built.
 
     ![Job-build in progress](./media/configure-on-linux-vm/job-currently-building.png)
-
-1. When the build completes, select the **Workspace** link.
-
-    ![Select the workspace link.](./media/configure-on-linux-vm/job-workspace.png)
-
-1. Navigate to `complete/build/libs` to see that the `.jar` file was successfully built.
-
-    ![The target library verifies the build succeeded.](./media/configure-on-linux-vm/successful-build.png)
 
 1. Your Jenkins server is now ready to build your own projects in Azure!
 
