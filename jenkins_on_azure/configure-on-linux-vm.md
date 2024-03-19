@@ -81,8 +81,7 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --public-ip-sku Standard \
     --custom-data cloud-init-jenkins.txt
-    ```
-   
+    ```   
 
 1. Run [az vm list](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-list) command to verify the creation (and state) of the new virtual machine.
 
@@ -110,6 +109,9 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
     --query [publicIps] \
     --output tsv
     ```
+1. You may retieve the IP address from the Azure Portal Console and selecting the Virtual Machine named `jenkinsvm267`
+
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/d1a43772-c1fd-4df4-be6a-43c63093551a)
 
     **Key points**:
 
