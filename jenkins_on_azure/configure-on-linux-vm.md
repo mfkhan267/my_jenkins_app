@@ -3,7 +3,7 @@ title: Get Started - Install Jenkins on an Azure Linux VM
 description: Learn how to install Jenkins on an Azure Linux virtual machine and build a sample Java application.
 keywords: jenkins, azure, devops, portal, linux, virtual machine
 ms.topic: quickstart
-ms.date: 09/23/2021
+ms.date: 19/03/2024
 ms.custom: devx-track-jenkins, devx-track-azurecli, mode-portal, devx-track-extended-java, linux-related-content
 ---
 
@@ -25,53 +25,75 @@ In this article, you'll learn how to:
 
 ## 1. Configure your environment
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+Azure subscription: If you don't have an Azure subscription, create a [Azure free account](https://azure.microsoft.com/en-in/free) before you begin.
 
 ## 2. Open Cloud Shell
 
-[!INCLUDE [open-cloud-shell.md](../includes/open-cloud-shell.md)]
+1. If you already have a Cloud Shell session open, you can skip to the next section.
+
+1. Browse to the [Azure portal](https://portal.azure.com/)
+
+1. If necessary, log in to your Azure subscription and change the Azure directory.
+
+1. Open Cloud Shell.
 
 ## 3. Create a virtual machine
 
-1. Create a test directory called `jenkins-get-started`.
+1. Fecth your account details as shown below for use further down the document as we proceed.
 
-1. Switch to the test directory.
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/735be17e-6c38-4a52-bade-44d10b8490ea)
+
+1. Create a test directory by a name of your choice. I called mine `jenkins267`.
+
+1. Switch to the test directory created above.
 
 1. Create a file named `cloud-init-jenkins.txt`.
 
 1. Paste the following code into the new file:
 
     ```json
-    #cloud-config
+    
+    #cloud-init-config-Jenkins
     package_upgrade: true
     runcmd:
-      - sudo apt install openjdk-11-jre -y
-      - curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
-      -  echo 'deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/' | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+      - sudo apt-get update && sudo apt-get install fontconfig openjdk-17-jre -y
+      - sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+      - echo 'deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/' | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
       - sudo apt-get update && sudo apt-get install jenkins -y
       - sudo service jenkins restart
-
 
     ```
     
 1. Run [az group create](/cli/azure/group#az-group-create) to create a resource group.
 
     ```azurecli
-    az group create --name jenkins-get-started-rg --location eastus
+    az group create --name jenkins267 --location eastus2
     ```
 
-1. Run [az vm create](/cli/azure/vm#az-vm-create) to create a virtual machine.
+1. Run [az vm create](/cli/azure/vm#az-vm-create) to create a virtual machine. If you have SSH of you own, you may use 
 
     ```azurecli
     az vm create \
-    --resource-group jenkins-get-started-rg \
-    --name jenkins-get-started-vm \
-    --image UbuntuLTS \
+    --resource-group jenkins267 \
+    --name jenkinsvm267 \
+    --image Ubuntu2204 \
     --admin-username "azureuser" \
     --generate-ssh-keys \
     --public-ip-sku Standard \
     --custom-data cloud-init-jenkins.txt
     ```
+    OR (if you already have a ssh key pair that you would like to use) 
+    ```azurecli
+    az vm create \
+    --resource-group jenkins267 \
+    --name jenkinsvm267 \
+    --image Ubuntu2204 \
+    --admin-username "azureuser" \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --public-ip-sku Standard \
+    --custom-data cloud-init-jenkins.txt
+    ```
+   
 
 1. Run [az vm list](/cli/azure/vm#az-vm-list) to verify the creation (and state) of the new virtual machine.
 
