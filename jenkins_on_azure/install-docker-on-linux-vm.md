@@ -6,16 +6,10 @@ This article shows how to install [Docker](https://docs.docker.com/engine/instal
 
 Before you can install Docker Engine, you need to uninstall any conflicting packages.
 
-```json
-    
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
 
-```
-    
-To run Docker with non-root privileges
-
-Add your user to the docker group: 
+To run Docker with non-root privileges you will have to add your user to the docker group: 
 
     sudo usermod -aG docker $USER
     sudo usermod -aG docker jenkins
