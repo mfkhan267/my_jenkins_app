@@ -198,7 +198,7 @@ A graphic below the **Build History** heading indicates that the job is being ex
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/c44c7590-24c3-4028-b7db-deca786e78cb)
 
-Congratulations! You just have successfully executed your first Jenkins Job. Your Jenkins server is now ready to build your projects in Azure!
+Congratulations! You have successfully executed your first Jenkins Job. Your Jenkins server is now ready to build your projects in Azure!
 
 ## Troubleshooting
 
