@@ -31,7 +31,7 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
 1. If you already have a Cloud Shell session open, you can skip to the next section.
 
-1. Browse to the [Azure portal](https://portal.azure.com/)
+1. Browse to the [Azure Portal](https://portal.azure.com/)
 
 1. If necessary, log in to your Azure subscription and change the Azure directory.
 
@@ -64,7 +64,7 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
     ```
     
-1. Run [az group create](/cli/azure/group#az-group-create) to create a resource group.
+1. Run [az group create] command to create a resource group.
 
     ```azurecli
     az group create --name jenkins267 --location eastus2
@@ -95,29 +95,29 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
     ```
    
 
-1. Run [az vm list](/cli/azure/vm#az-vm-list) to verify the creation (and state) of the new virtual machine.
+1. Run [az vm list] command to verify the creation (and state) of the new virtual machine.
 
     ```azurecli
-    az vm list -d -o table --query "[?name=='jenkins-get-started-vm']"
+    az vm list -d -o table --query "[?name=='jenkinsvm267']"
     ```
 
-1. As Jenkins runs on port 8080, run [az vm open](/cli/azure/vm#az-vm-open-port) to open port 8080 on the new virtual machine.
+1. As Jenkins runs on port 8080, run [az vm open] command to open port 8080 on the new virtual machine.
 
     ```azurecli
     az vm open-port \
-    --resource-group jenkins-get-started-rg \
-    --name jenkins-get-started-vm  \
+    --resource-group jenkins267 \
+    --name jenkinsvm267  \
     --port 8080 --priority 1010
     ```
 
 ## 4. Configure Jenkins
 
-1. Run [az vm show](/cli/azure/vm#az-vm-show) to get the public IP address for the sample virtual machine.
+1. Run [az vm show] command to get the public IP address for the sample virtual machine.
 
     ```azurecli
     az vm show \
-    --resource-group jenkins-get-started-rg \
-    --name jenkins-get-started-vm -d \
+    --resource-group jenkins267 \
+    --name jenkinsvm267 -d \
     --query [publicIps] \
     --output tsv
     ```
