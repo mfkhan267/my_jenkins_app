@@ -1,41 +1,60 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('git checkout'){
-            steps{
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/hkaanturgut/Tetris-App-Jenkins.git']])
-            }
-        }
+    environment {
+        AZURE_TENANT_ID = "61952628-b9f1-4dbe-9ea2-311ffb0da156"
+        AZURE_SUBSCRIPTION_ID = "c8105223-fff8-4acf-9281-4171ea50d6ac"
+    }
+
+    stages {
+        stage('git checkout') {
+            steps {
+              checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mfkhan267/my_jenkins_app.git']]])
+              sh "pwd"
+              sh "ls -ltr"
+              dir("${env.WORKSPACE}/container"){
+                    sh "pwd"
+                        }
+                    }
+                              }
         stage('build docker image'){
             steps{
-                sh 'docker build -t jenkinsacrkaan.azurecr.io/tetris .'
+    	        dir("${env.WORKSPACE}/container"){
+                    sh "pwd"
+                    sh 'docker build -t acr267.azurecr.io/gsd:$BUILD_NUMBER .'
+                        }
             }
         }
         stage('push image'){
             steps{
-                withCredentials([usernamePassword(credentialsId: 'ACR', passwordVariable: 'password', usernameVariable: 'username')]) {
-                sh 'docker login -u ${username} -p ${password} jenkinsacrkaan.azurecr.io'
-                sh 'docker push jenkinsacrkaan.azurecr.io/tetris'
+                withCredentials([usernamePassword(credentialsId: 'acr', passwordVariable: 'password', usernameVariable: 'username')]) {
+                sh 'echo ${password} | docker login acr267.azurecr.io --username ${username} --password-stdin'
+                sh 'docker push acr267.azurecr.io/gsd:$BUILD_NUMBER'
                 }
             }
         }
-        stage('install Azure CLI'){
+        stage('Install Azure CLI'){
             steps{
                 sh '''
-                apk add py3-pip
-                apk add gcc musl-dev python3-dev libffi-dev openssl-dev cargo make
-                pip install --upgrade pip
-                pip install azure-cli
+                echo "Installing Azure CLI"
+                cat /etc/os-release
+                hostname
+                hostnamectl
+                sudo apt-get update
+                curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+                az --version
                 '''
             }
         }
         stage('deploy web app'){
             steps{
-                withCredentials([azureServicePrincipal('azureServicePrincipal')]) {
-                sh 'az login --service-principal -u ${AZURE_CLIENT_ID} -p ${AZURE_CLIENT_SECRET} --tenant ${AZURE_TENANT_ID}'
+                withCredentials([usernamePassword(credentialsId: 'asp', passwordVariable: 'password', usernameVariable: 'username')]) {
+                sh 'az login --service-principal -u ${username} -p ${password} --tenant ${AZURE_TENANT_ID}'
                 }
-                withCredentials([usernamePassword(credentialsId: 'ACR', passwordVariable: 'password', usernameVariable: 'username')]) {
-                sh 'az webapp config container set --name tetris-game-webapp --resource-group Tetris-App-RG --docker-custom-image-name jenkinsacrkaan.azurecr.io/tetris:latest --docker-registry-server-url https://jenkinsacrkaan.azurecr.io --docker-registry-server-user ${username} --docker-registry-server-password ${password}'
+                withCredentials([usernamePassword(credentialsId: 'acr', passwordVariable: 'password', usernameVariable: 'username')]) {
+                sh 'az webapp config container set --name tetris-webapp267 --resource-group jenkins267 --docker-custom-image-name acr267.azurecr.io/gsd:$BUILD_NUMBER --docker-registry-server-url https://acr267.azurecr.io --docker-registry-server-user ${username} --docker-registry-server-password ${password}'
+                // sh 'az webapp config container set --name tetris-webapp267 --resource-group jenkins267 --docker-custom-image-name nginx:latest'
+                // sh 'az webapp config container set --name tetris-webapp267 --resource-group jenkins267 --docker-custom-image-name mfk267/catcontainer:latest'
+                // sh 'az webapp config container set --name tetris-webapp267 --resource-group jenkins267 --docker-custom-image-name mfk267/gsd:latest'
                 }
             }
         }
