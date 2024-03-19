@@ -26,9 +26,11 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
 
 1. Open Cloud Shell.
 
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/14b19209-2093-4a29-a5e6-df8093e4afa0)
+
 ## 3. Create a virtual machine
 
-1. Fecth your account details as shown below for use further down the document as we proceed.
+1. Fetch your account details as shown below for use further down the document as we proceed.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/735be17e-6c38-4a52-bade-44d10b8490ea)
 
@@ -81,15 +83,16 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --public-ip-sku Standard \
     --custom-data cloud-init-jenkins.txt
-    ```   
-
+    ```
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/5c0afd4f-d22d-46ec-8a1a-92f5c2b79aa7)
+ 
 1. Run [az vm list](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-list) command to verify the creation (and state) of the new virtual machine.
 
     ```azurecli
     az vm list -d -o table --query "[?name=='jenkinsvm267']"
     ```
 
-1. As Jenkins runs on port 8080, run [az vm open-port](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-open-port) command to open port 8080 on the new virtual machine.
+1. As Jenkins runs on port 8080, let us now run [az vm open-port](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-open-port) command to open port 8080 on the new virtual machine. You also need to open additional ports later on if your container app is listening on other ports like 8080, 3000 and so on.
 
     ```azurecli
     az vm open-port \
@@ -109,6 +112,8 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
     --query [publicIps] \
     --output tsv
     ```
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/ce02a682-a07f-42f5-aaea-eeff49bee6e3)
+
 1. You may retieve the IP address from the Azure Portal Console and selecting the Virtual Machine named `jenkinsvm267`
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/d1a43772-c1fd-4df4-be6a-43c63093551a)
@@ -142,32 +147,30 @@ Azure subscription: If you don't have an Azure subscription, create a [Azure fre
     ```bash
     sudo cat /var/lib/jenkins/secrets/initialAdminPassword
     ```
+    
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/e0001f99-4302-4969-9687-0b8105fa2388)
 
 1. Using the IP address, open the following URL in a browser: `http://<ip_address>:8080`
 
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/0eeb69aa-198d-49bf-bb12-14521b74f92f)
+
 1. Enter the password you retrieved earlier and select **Continue**.
 
-    ![Initial page to unlock Jenkins](./media/configure-on-linux-vm/unlock-jenkins.png)
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/20495d31-5438-42a4-9f81-62fe73fb9da4)
 
-1. Select **Select plug-in to install**.
+1. Select **Select Install suggested plug-ins**.
 
-    ![Select the option to install selected plug-ins](./media/configure-on-linux-vm/select-plugins.png)
-
-1. In the filter box at the top of the page, enter `github`. Select the GitHub plug-in and select **Install**.
-
-    ![Install the GitHub plug-ins](./media/configure-on-linux-vm/install-github-plugin.png)
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/1b528afd-7e76-4744-a7f9-113633cad0ff)
 
 1. Enter the information for the first admin user and select **Save and Continue**.
 
-    ![Enter information for first admin user](./media/configure-on-linux-vm/create-first-user.png)
-
 1. On the **Instance Configuration** page, select **Save and Finish**.
 
-    ![Confirmation page for instance configuration](./media/configure-on-linux-vm/instance-configuration.png)
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/27e3628d-edf7-4dc4-a617-3ba76a25466e)
 
 1. Select **Start using Jenkins**.
 
-    ![Jenkins is ready!](./media/configure-on-linux-vm/start-using-jenkins.png)
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/026900f5-3e33-4b30-8899-6c128085875f)
 
 ## 5. Create your first job
 
