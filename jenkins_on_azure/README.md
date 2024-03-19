@@ -216,5 +216,4 @@ If you encounter any problems configuring Jenkins, refer to the [Jenkins install
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Jenkins on Azure](./configure-on-linux-vm.md)
+[Jenkins on Azure](./configure-on-linux-vm.md)
