@@ -61,7 +61,7 @@ Run [az group create](https://learn.microsoft.com/en-us/cli/azure/group?view=azu
     az group create --name jenkins267 --location eastus2
     ```
 
-Run [az vm create](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli) to create a virtual machine. If you have SSH of you own, you may use 
+Run [az vm create](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli) to create a virtual machine. 
 
     ```azurecli
     az vm create \
@@ -190,15 +190,15 @@ Scroll to the bottom of the page, and select **Save**.
 
 ## 6. Build the sample Freestyle Hello-World job
 
-When the home page for your project displays, select **Build Now** to compile the code and package the sample app.
+When the home page for your project displays, select **Build Now** to execute your Jenkins job.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/e58f8baf-c717-4361-aceb-9123dc83ffdc)
 
-A graphic below the **Build History** heading indicates that the job is being built.
+A graphic below the **Build History** heading indicates that the job is being executed or completed. Go to the job build and console output to see the results.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/c44c7590-24c3-4028-b7db-deca786e78cb)
 
-Your Jenkins server is now ready to build your own projects in Azure!
+Congratulations! You just have successfully executed your first Jenkins Job. Your Jenkins server is now ready to build your projects in Azure!
 
 ## Troubleshooting
 
