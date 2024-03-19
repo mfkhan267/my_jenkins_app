@@ -1,4 +1,4 @@
-# Get Started: Install Docker on an Azure Linux VM running Jenkins
+# Get Started: Install Jenkins on an Azure Linux VM
 
 This article shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM with the tools and plug-ins configured to work with Azure.
 
@@ -216,5 +216,4 @@ If you encounter any problems configuring Jenkins, refer to the [Jenkins install
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Jenkins on Azure](./index.yml)
+[Install Docker on Azure VM running Jenkins](./configure-on-linux-vm.md)
