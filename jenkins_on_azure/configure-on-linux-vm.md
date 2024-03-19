@@ -186,9 +186,15 @@ From the drop-down menu, select **Execute Shell**.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/6406e84d-3bed-40cb-a5b1-cdc5f076755a)
 
+You may also select a **Pipeline project**, and select **OK** and try the sample Hello-World pipeline.
+
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/5c7abcc7-655b-47c6-801d-f1c619e7ccb9)
+
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/6da44c09-32b3-49cd-9bd7-d5b7dccde6ed)
+
 Scroll to the bottom of the page, and select **Save**.
 
-## 6. Build the sample Freestyle Hello-World job
+## 6. Build the sample Freestyle or Pipeline Hello-World job
 
 When the home page for your project displays, select **Build Now** to execute your Jenkins job.
 
