@@ -1,14 +1,14 @@
 # No Non-Sense Getting Started with Jenkins on an Azure Linux VM
 
-This article shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM with the tools and plug-ins configured to work with Azure.
+This article shows you how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM running in Azure Cloud.
 
-In this article, you'll learn how to:
+Here are the quick steps:
 
-> * Create a free Azure Account
+> * Get yourself a free Azure Account if you do not have one already
 > * Create a resource group
-> * Create a virtual machine with the setup file
-> * Open port 8080 in order to access Jenkins on the virtual machine
-> * Connect to the virtual machine via SSH
+> * Create a Ubuntu Linux VM with the setup file also called the cloud init custom data
+> * Open port 8080 in order to access Jenkins on the virtual machine (Yes Jenkins runs on port 8080)
+> * Connect to the virtual machine via SSH and the PublicIP of the VM
 > * Configure a sample Jenkins pipeline job
 > * Build the sample Jenkins pipeline job
 
@@ -22,7 +22,7 @@ If you already have a Cloud Shell session open, you can skip to the next section
 
 Browse to the [Azure Portal](https://portal.azure.com/)
 
-If necessary, log in to your Azure subscription and change the Azure directory.
+If necessary, log in to your Azure subscription and change the Azure directory and subscription that you would like to use.
 
 Open Cloud Shell.
 
@@ -30,7 +30,7 @@ Open Cloud Shell.
 
 ## 3. Create a virtual machine
 
-Fetch your account details as shown below for use further down the document as we proceed.
+Fetch your account details as shown below (we will need these further down the document as we proceed.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/735be17e-6c38-4a52-bade-44d10b8490ea)
 
