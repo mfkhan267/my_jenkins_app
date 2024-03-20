@@ -48,4 +48,4 @@ There you have it. You have successfully install the docker engine to start play
 
 ## Next steps
 
-> [Coming Soon]
+[Coming Soon]
