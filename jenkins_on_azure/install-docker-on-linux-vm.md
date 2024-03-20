@@ -4,7 +4,8 @@ This article shows how to install [Docker](https://docs.docker.com/engine/instal
 
 ## 1. Install Docker Engine using the convenience script
 
-Before you can install Docker Engine, you need to uninstall any conflicting packages.
+Docker provides a convenience script at https://get.docker.com/ to install Docker into development environments non-interactively. 
+We shall use the scripted installation method for convenience.
 
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
