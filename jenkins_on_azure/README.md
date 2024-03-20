@@ -12,6 +12,8 @@ Here are the quick steps:
 > * Configure a sample Jenkins pipeline job
 > * Build the sample Jenkins pipeline job
 
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/006dab74-e44e-48e3-9713-c077cf9ba352)
+
 ## 1. Configure your environment
 
 Azure subscription: If you don't have an Azure subscription, create a [Azure free account](https://azure.microsoft.com/en-in/free) before you begin.
