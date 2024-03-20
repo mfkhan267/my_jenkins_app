@@ -1,4 +1,4 @@
-# Get Started: Install Docker on an Azure Linux VM running Jenkins
+# No Non-Sense Installing Docker on an Azure Linux VM running Jenkins
 
 This article shows how to install [Docker](https://docs.docker.com/engine/install/ubuntu) on an Ubuntu Linux VM for developing, packaging and shipping your containarized apps.
 
