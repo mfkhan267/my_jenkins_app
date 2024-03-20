@@ -130,7 +130,7 @@ Using the IP address retrieved in the previous step, SSH into the virtual machin
 
     **Key points**:
 
-    - Upon successful connection, the Cloud Shell prompt includes the user name and virtual machine name: `azureuser@jenkins-get-started-vm`.
+    - Upon successful connection, the Cloud Shell prompt includes the user name and virtual machine name: `azureuser@jenkinsvm267`.
 
 Verify that Jenkins is running by getting the status of the Jenkins service.
 
@@ -162,7 +162,8 @@ Select **Select Install suggested plug-ins**.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/1b528afd-7e76-4744-a7f9-113633cad0ff)
 
-Enter the information for the first admin user and select **Save and Continue**.
+Enter the information for the first admin user and select **Save and Continue**. 
+I highly recommend that you create the admin user by the same name as the admin user that you created with the VM creation step.
 
 On the **Instance Configuration** page, select **Save and Finish**.
 
