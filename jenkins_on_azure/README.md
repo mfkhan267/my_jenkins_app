@@ -1,4 +1,6 @@
-# No Non-Sense Getting Started with Jenkins on an Azure Linux VM - Part 1
+# No Non-Sense Getting Started with Jenkins on an Azure Linux VM
+
+# Part 1
 
 This article shows you how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM running in Azure Cloud.
 
