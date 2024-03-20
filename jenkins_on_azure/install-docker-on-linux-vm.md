@@ -14,7 +14,7 @@ We shall use the scripted installation method for convenience.
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
 
-To run Docker with non-root privileges you will have to add your user to the docker group
+To run Docker with non-root privileges you will have to add your user to the docker group.
 
 // bash command
 
@@ -23,19 +23,29 @@ To run Docker with non-root privileges you will have to add your user to the doc
     sudo usermod -aG docker azureuser
     sudo usermod -aG docker awsuser
 
-In case the Docker group does not exist create the Docker Group
+In case the Docker group does not exist create the Docker Group.
 
 // bash command
 
     sudo groupadd docker
 
-Restart so that your group membership is re-evaluated
+Restart so that your group membership is re-evaluated.
 
 // bash command
 
     sudo reboot
     sudo service docker status
 
+Let us run Docker Version to confirm the installation.
+
+// bash command
+
+    docker --version
+
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/31060bec-20e2-4e81-b6db-8f4408b74653)
+
+There you have it. You have successfully install the docker engine to start playing with docker containers and images.
+
 ## Next steps
 
-> [Jenkins on Azure](./index.yml)
+> [Coming Soon]
