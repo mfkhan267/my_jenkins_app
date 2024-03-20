@@ -4,8 +4,8 @@
 
     - Even each app does not have a Readme , the steps outlined here apply uniformly to all of them. 
     
-    ![Blank diagram (1)](https://user-images.githubusercontent.com/113396342/218916484-db7e75ab-407d-4b3f-90b7-201871786329.png)
-
+    ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/006dab74-e44e-48e3-9713-c077cf9ba352)
+    
     
 #
 
