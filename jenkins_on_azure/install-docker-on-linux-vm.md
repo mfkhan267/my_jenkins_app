@@ -44,7 +44,7 @@ Let us run Docker Version to confirm the installation.
 
 ![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/31060bec-20e2-4e81-b6db-8f4408b74653)
 
-There you have it. You have successfully install the docker engine to start playing with docker containers and images.
+There you have it. You have successfully installed the docker engine. It is time to get started with docker containers and images.
 
 ## Next steps
 
