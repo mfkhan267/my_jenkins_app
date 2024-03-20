@@ -3,6 +3,8 @@ pipeline {
     environment {
         AZURE_TENANT_ID = "61952628-b9f1-4dbe-9ea2-311ffb0da156"
         AZURE_SUBSCRIPTION_ID = "c8105223-fff8-4acf-9281-4171ea50d6ac"
+        ACR_REGISTRY = "acr267.azurecr.io"
+        APP_REPO_NAME = "gsd"
     }
 
     stages {
@@ -20,7 +22,9 @@ pipeline {
             steps{
     	        dir("${env.WORKSPACE}/container"){
                     sh "pwd"
-                    sh 'docker build -t acr267.azurecr.io/gsd:$BUILD_NUMBER .'
+                    //sh 'docker build --force-rm -t acr267.azurecr.io/gsd:$BUILD_NUMBER .'
+                    sh 'docker build --force-rm -t "$ACR_REGISTRY/$APP_REPO_NAME:$BUILD_NUMBER" .'
+                    sh 'docker image ls'
                         }
             }
         }
