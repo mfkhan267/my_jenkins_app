@@ -83,7 +83,7 @@ Run [az vm create](https://learn.microsoft.com/en-us/azure/virtual-machines/linu
     --public-ip-sku Standard \
     --custom-data cloud-init-jenkins.txt
 
-![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/5c0afd4f-d22d-46ec-8a1a-92f5c2b79aa7)
+![image](https://github.com/mfkhan267/my_jenkins_app/assets/77663612/e935b17a-089d-4d76-a0fc-973e3b3179dd)
  
 Run [az vm list](https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-list) command to verify the creation (and state) of the new virtual machine.
 
